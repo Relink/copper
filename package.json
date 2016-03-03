@@ -1,0 +1,30 @@
+{
+  "name": "@relinklabs/copper",
+  "version": "0.0.1",
+  "description": "Streams utility library",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha lib/*.spec.js",
+    "tdd": "node_modules/.bin/mocha lib/*.spec.js --watch --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Relink/copper.git"
+  },
+  "author": "relinklabs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Relink/copper/issues"
+  },
+  "homepage": "https://github.com/Relink/copper#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "proxyquire": "^1.7.4",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "lodash": "^4.6.1"
+  }
+}
