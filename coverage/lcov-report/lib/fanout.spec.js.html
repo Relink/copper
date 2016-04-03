@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/fanout.spec.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">lib/fanout.spec.js</span></h1>
+    <h2>
+        Statements: <span class="metric">97.53% <small>(79 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">75% <small>(3 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(2 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">98.7% <small>(76 / 77)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; fanout.spec.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var chai = require('chai');
+chai.use(require('sinon-chai'));
+var expect = chai.expect;
+var sinon = require('sinon');
+var _ = require('lodash');
+var stream = require('stream');
+var EventEmitter = require('events').EventEmitter;
+var fanout = require('./fanout')
+&nbsp;
+&nbsp;
+describe('fanout', () =&gt; {
+&nbsp;
+  describe('createStreams', () =&gt; {
+&nbsp;
+    it('creates a direct connection between input stream and src ', done =&gt; {
+      var input = stream.Readable({ objectMode: true, highWaterMark: 2, read: sinon.stub() });
+      var created = fanout.createStreams();
+      var ext = created.ext;
+      var src = created.src;
+&nbsp;
+      sinon.stub(src, 'push', src.push);
+      sinon.stub(ext, 'write', ext.write)
+&nbsp;
+      input.pipe(ext);
+&nbsp;
+      var i = 0;
+      var pushResults = []
+      while (++i &lt;= 3) pushResults.push(input.push(i));
+&nbsp;
+      expect(pushResults).to.deep.equal([true, false, false]);
+      expect(src.push.callCount).to.equal(0);
+      expect(ext.write.callCount).to.equal(0);
+      expect(input._read.callCount).to.equal(0)
+&nbsp;
+      setTimeout(() =&gt; {
+&nbsp;
+        // Note: this shows that these are all asyncrhonous:
+        expect(src.push.callCount).to.equal(3);
+        expect(ext.write.callCount).to.equal(3);
+        expect(input._read.callCount).to.equal(1)
+        var j = 0;
+        var readResults = [];
+        while(++j &lt;= 3) readResults.push(src.read());
+&nbsp;
+        expect(readResults).to.deep.equal([1,2,3]);
+        done();
+      })
+    });
+&nbsp;
+    it('src will cause more read calls from the input', done =&gt; {
+&nbsp;
+      // --------------------------------------------
+      // this mess simulates our kafka consumer stream
+      // ---------------------------------------------
+&nbsp;
+      var consumer = new EventEmitter();
+      var paused = true;
+      var i = 0;
+&nbsp;
+      function emit (consumer) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (paused) <span class="cstat-no" title="statement not covered" >return;</span>
+        consumer.emit('data', ++i);
+        setTimeout(() =&gt; {
+<span class="cstat-no" title="statement not covered" >          emit(consumer)</span>
+        }, 100)
+      }
+&nbsp;
+      consumer.on('resume', () =&gt; {
+        paused = false;
+        emit(consumer);
+      })
+&nbsp;
+      consumer.on('pause', () =&gt; {
+        paused = true;
+      })
+&nbsp;
+      function reader () {
+        consumer.emit('resume');
+      }
+&nbsp;
+      var input = stream.Readable({ objectMode: true, highWaterMark: 2, read: reader });
+&nbsp;
+      consumer.on('data', data =&gt; {
+        if (!input.push(data)) {
+          consumer.emit('pause');
+        }
+      });
+&nbsp;
+      // ------------------------------------------------
+      // end mess
+      // ------------------------------------------------
+&nbsp;
+      var created = fanout.createStreams();
+      var ext = created.ext;
+      var src = created.src;
+&nbsp;
+      src._readableState.highWaterMark = 2;
+      ext._writableState.highWaterMark = 3;
+&nbsp;
+      sinon.stub(src, 'push', src.push);
+      sinon.stub(ext, 'write', ext.write);
+      sinon.stub(input, 'push', input.push);
+&nbsp;
+      input.on('readable', _.noop); // kick off
+&nbsp;
+      input
+        .pipe(ext);
+&nbsp;
+      // nothing should happen syncrhonously
+      expect(src.push.callCount).to.equal(0);
+&nbsp;
+      setTimeout(() =&gt; {
+&nbsp;
+        // Here we see the effects of buffering that builds up
+        // before the emitter is stopped.
+        expect(input.push.callCount).to.equal(6);
+        expect(ext.write.callCount).to.equal(4);
+        expect(src.push.callCount).to.equal(2);
+&nbsp;
+        // read 6 times
+        var firstReads = [];
+        var i = 0;
+        while (++i &lt;= 6) firstReads.push(src.read());
+        expect(firstReads).to.deep.equal([1,2,3,4,5,6]);
+&nbsp;
+        // reading 6 times should have called the input.push
+        // function 6 more times, and filled up all the other
+        // buffers along the way.
+        expect(input.push.callCount).to.equal(12);
+        expect(ext.write.callCount).to.equal(10);
+        expect(src.push.callCount).to.equal(8);
+&nbsp;
+        done();
+      })
+    })
+  })
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 03 2016 12:47:21 GMT+0100 (CET)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
