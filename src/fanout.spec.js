@@ -12,17 +12,6 @@ describe('fanout', () => {
 
   describe('createStreams', () => {
 
-    it('propogates errors with the propogate flag', done => {
-      var input = stream.Readable({ objectMode: true, read: sinon.stub() });
-      input
-        .pipe(fanout.createStreams({propagate: true}, () => null))
-        .on('error', err => {
-          expect(err).to.be.an.error;
-          done();
-        })
-      input.emit('error', new Error('foo'))
-    });
-
     it('creates a direct connection between input stream and src ', done => {
       var input = stream.Readable({ objectMode: true, highWaterMark: 2, read: sinon.stub() });
       var created = fanout.createStreams();

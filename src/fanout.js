@@ -29,7 +29,7 @@ var stream = require('stream');
  * be returned, otherwise an object is returned with each stream
  * as a value.
  */
-function createStreams ({propagate = false} = {}, callback) {
+function createStreams (callback) {
   var onIR = () => undefined;
   var onER = () => undefined;
 
@@ -59,12 +59,6 @@ function createStreams ({propagate = false} = {}, callback) {
     },
     read: () => onER()
   });
-
-  if (propagate) {
-    ext.on('pipe', piped => {
-      piped.on('error', err => ext.emit('error', err))
-    });
-  }
 
   if (typeof callback == 'function') {
     callback(src, dest);
