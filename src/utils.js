@@ -16,9 +16,15 @@ SequenceStream.prototype._write = function write (chunk, encoding, cb) {
   process(data);
 
   function process ([head, ...tail]) {
-    if (!head) { return cb() };
-    if (self.push(head)) { return process(tail) }
-    if (tail.length === 0){ return cb() }
+
+    // Base case, nothing to process. Check for tail because
+    // we have undefined values that we process as well!
+    if (!head && _.isEmpty(tail)) {
+      return cb()
+    };
+    if (self.push(head)) {
+      return process(tail)
+    }
 
     // If there is still a tail, then we need to buffer the rest
     // of the data array and deal with it ourselves.
