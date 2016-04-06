@@ -1,6 +1,6 @@
 {
   "name": "@relinklabs/copper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Streams utility library",
   "main": "index.js",
   "scripts": {
