@@ -39,7 +39,7 @@ function createStreams (callback) {
       if (!ext.push(d)) {
         return onER = c;
       }
-      c();
+      setTimeout(c);
     }
   });
 
@@ -55,7 +55,7 @@ function createStreams (callback) {
       if (!src.push(d)){
         return onIR = c;
       }
-      c();
+      setTimeout(c);
     },
     read: () => onER()
   });

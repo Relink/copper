@@ -44,7 +44,7 @@ describe('fanout', () => {
 
         expect(readResults).to.deep.equal([1,2,3]);
         done();
-      })
+      }, 30)
     });
 
     it('src will cause more read calls from the input', done => {
@@ -68,11 +68,11 @@ describe('fanout', () => {
       consumer.on('resume', () => {
         paused = false;
         emit(consumer);
-      })
+      });
 
       consumer.on('pause', () => {
         paused = true;
-      })
+      });
 
       function reader () {
         consumer.emit('resume');
@@ -95,7 +95,7 @@ describe('fanout', () => {
       var src = created.src;
 
       src._readableState.highWaterMark = 2;
-      ext._writableState.highWaterMark = 3;
+      ext._writableState.highWaterMark = 2;
 
       sinon.stub(src, 'push', src.push);
       sinon.stub(ext, 'write', ext.write);
@@ -113,8 +113,8 @@ describe('fanout', () => {
 
         // Here we see the effects of buffering that builds up
         // before the emitter is stopped.
-        expect(input.push.callCount).to.equal(6);
-        expect(ext.write.callCount).to.equal(4);
+        expect(input.push.callCount).to.equal(4);
+        expect(ext.write.callCount).to.equal(2);
         expect(src.push.callCount).to.equal(2);
 
         // read 6 times
@@ -126,12 +126,12 @@ describe('fanout', () => {
         // reading 6 times should have called the input.push
         // function 6 more times, and filled up all the other
         // buffers along the way.
-        expect(input.push.callCount).to.equal(12);
-        expect(ext.write.callCount).to.equal(10);
+        expect(input.push.callCount).to.equal(10);
+        expect(ext.write.callCount).to.equal(8);
         expect(src.push.callCount).to.equal(8);
 
         done();
-      })
+      }, 50);
     })
   })
 });
