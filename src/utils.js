@@ -17,14 +17,22 @@ SequenceStream.prototype._write = function write (chunk, encoding, cb) {
 
   function process ([head, ...tail]) {
 
-    // Base case, nothing to process. Check for tail because
-    // we have undefined values that we process as well!
+    // Base case, nothing to process. Check for tail so we
+    // can process undefined values as well!
     if (!head && _.isEmpty(tail)) {
-      return cb()
+      return cb();
     };
+
+    // if pushing works, recurse
     if (self.push(head)) {
-      return process(tail)
-    }
+      return process(tail);
+    };
+
+    // if pushing doesnt work, but it was
+    // anyways the last item, callback
+    if (_.isEmpty(tail)) {
+      return cb();
+    };
 
     // If there is still a tail, then we need to buffer the rest
     // of the data array and deal with it ourselves.
@@ -70,6 +78,18 @@ u.filter = function filter (predicate) {
     transform: (d, e, c) => {
       predicate(d) ? c(null, d) : c()
     }
+  });
+};
+
+/*
+ * Helper function used to listen to backpressure.
+ */
+u.write = function write (stream, data) {
+  return new Promise((resolve, reject) => {
+    if (!stream.write(data)){
+      return stream.once('drain', resolve.bind(null, data))
+    };
+    resolve(data);
   });
 };
 
